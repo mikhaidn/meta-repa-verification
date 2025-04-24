@@ -1,0 +1,91 @@
+cabal-version: 2.2
+
+-- This file has been generated from package.yaml by hpack version 0.36.0.
+--
+-- see: https://github.com/sol/hpack
+
+name:           repa-bench
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/githubuser/repa-bench#readme>
+homepage:       https://github.com/githubuser/repa-bench#readme
+bug-reports:    https://github.com/githubuser/repa-bench/issues
+author:         Author name here
+maintainer:     example@example.com
+copyright:      2024 Author name here
+license:        BSD-3-Clause
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    CHANGELOG.md
+
+source-repository head
+  type: git
+  location: https://github.com/githubuser/repa-bench
+
+library
+  exposed-modules:
+      Lib
+      MatrixMult
+  other-modules:
+      Paths_repa_bench
+  autogen-modules:
+      Paths_repa_bench
+  hs-source-dirs:
+      src
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
+  build-depends:
+      base >=4.7 && <5
+    , criterion
+    , repa
+  default-language: Haskell2010
+
+executable repa-bench-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_repa_bench
+  autogen-modules:
+      Paths_repa_bench
+  hs-source-dirs:
+      app
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , criterion
+    , repa
+    , repa-bench
+  default-language: Haskell2010
+
+test-suite repa-bench-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_repa_bench
+  autogen-modules:
+      Paths_repa_bench
+  hs-source-dirs:
+      test
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , criterion
+    , repa
+    , repa-bench
+  default-language: Haskell2010
+
+benchmark repa-bench
+  type: exitcode-stdio-1.0
+  main-is: Main.hs
+  other-modules:
+      Paths_repa_bench
+  autogen-modules:
+      Paths_repa_bench
+  hs-source-dirs:
+      bench
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -O2
+  build-depends:
+      base >=4.7 && <5
+    , criterion
+    , repa
+    , repa-bench
+  default-language: Haskell2010
